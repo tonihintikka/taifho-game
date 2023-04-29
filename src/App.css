@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +35,106 @@
   to {
     transform: rotate(360deg);
   }
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-gap: 1px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black; /* Lisää musta reunaviiva */
+}
+
+
+
+/* Valkoiset reunat */
+.cell:nth-child(10n + 1),
+.cell:nth-child(10n + 10),
+.cell:nth-last-child(-n + 10),
+.cell:nth-last-child(-n + 9) {
+  background-color: white;
+  border: none; /* Poista musta reunaviiva valkoisista reunoista */
+}
+
+/* Shakkilaudan tummat ruudut */
+.cell-odd {
+  background-color: #a48a79;
+}
+
+/* Shakkilaudan vaaleat ruudut */
+.cell-even {
+  background-color: #f0e0d6;
+}
+
+
+/* Shakkilaudan tummat ruudut - parittomat rivit */
+.cell:nth-child(10n + 3) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)),
+.cell:nth-child(10n + 1) ~ .cell:nth-child(even):not(:nth-child(10n + 10)) {
+  background-color: #a48a79;
+}
+
+/* Shakkilaudan vaaleat ruudut - parittomat rivit */
+.cell:nth-child(10n + 3) ~ .cell:nth-child(even):not(:nth-child(10n + 10)),
+.cell:nth-child(10n + 1) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)) {
+  background-color: #f0e0d6;
+}
+
+/* Shakkilaudan tummat ruudut - parilliset rivit */
+.cell:nth-child(10n + 2) ~ .cell:nth-child(even):not(:nth-child(10n + 10)),
+.cell:nth-child(10n + 4) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)) {
+  background-color: #a48a79;
+}
+
+/* Shakkilaudan vaaleat ruudut - parilliset rivit */
+.cell:nth-child(10n + 2) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)),
+.cell:nth-child(10n + 4) ~ .cell:nth-child(even):not(:nth-child(10n + 10)) {
+  background-color: #f0e0d6;
+}
+
+
+.piece {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Voit määrittää eri värit erilaisille pelinappuloille */
+.piece-triangle {
+  background-color: #f06;
+}
+
+.piece-square {
+  background-color: #06f;
+}
+
+.piece-circle {
+  background-color: #0f6;
+}
+
+.piece-diamond {
+  background-color: #ff0;
+}
+
+.cell:hover {
+  border: 2px solid #00f;
+  box-sizing: border-box;
 }
