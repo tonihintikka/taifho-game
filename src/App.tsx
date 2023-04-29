@@ -1,12 +1,37 @@
 import React, { useState } from "react";
 import "./App.css";
-import Board, { createInitialBoardState, StartingPositions } from "./Board";
+import Board from "./Board";
+import { startingPositions, StartingPositions } from "./startingPositions";
 
-function App() {
-  const rows = 10;
-  const cols = 10;
-  const initialBoardState = createInitialBoardState(StartingPositions, rows, cols);
+const App: React.FC = () => {
+  
+  const createInitialBoardState = (
+    startingPositions: StartingPositions,
+    rows: number,
+    cols: number
+  ) => {
+    const boardState: any[][] = Array.from({ length: rows }, () =>
+      Array.from({ length: cols }, () => null)
+    );
 
+    for (const player in startingPositions) {
+      const positions = startingPositions[player].positions;
+      const color = startingPositions[player].color;
+      for (const coordinate in positions) {
+        const x = coordinate.charCodeAt(0) - "a".charCodeAt(0);
+        const y = 9 - (parseInt(coordinate[1], 10) - 1);
+        boardState[y][x] = {
+          player: player,
+          pieceType: positions[coordinate],
+          color: color,
+        };
+      }
+    }
+
+    return boardState;
+  };
+
+  const initialBoardState = createInitialBoardState(startingPositions, 10, 10);
   const [boardState, setBoardState] = useState(initialBoardState);
 
   const handleMove = (from: string, to: string) => {
@@ -15,8 +40,8 @@ function App() {
     const toX = to.charCodeAt(0) - "a".charCodeAt(0);
     const toY = 9 - (parseInt(to[1], 10) - 1);
 
-    const newBoardState = boardState.map((row) => row.slice());
-    newBoardState[toY][toX] = boardState[fromY][fromX];
+    const newBoardState = [...boardState];
+    newBoardState[toY][toX] = newBoardState[fromY][fromX];
     newBoardState[fromY][fromX] = null;
 
     setBoardState(newBoardState);
@@ -27,6 +52,6 @@ function App() {
       <Board boardState={boardState} onMove={handleMove} />
     </div>
   );
-}
+};
 
 export default App;
