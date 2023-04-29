@@ -49,60 +49,23 @@
   grid-gap: 1px;
   width: 500px;
   height: 500px;
-  border: 1px solid black;
+  /*border: 1px solid white; /* Muuta tämä valkoiseksi */
 }
 
 .cell {
   position: relative;
   width: 100%;
   height: 100%;
-  border: 1px solid black; /* Lisää musta reunaviiva */
+  border: 1px solid black;
 }
 
 
-
-/* Valkoiset reunat */
-.cell:nth-child(10n + 1),
-.cell:nth-child(10n + 10),
-.cell:nth-last-child(-n + 10),
-.cell:nth-last-child(-n + 9) {
+.cell-white {
   background-color: white;
-  border: none; /* Poista musta reunaviiva valkoisista reunoista */
 }
 
-/* Shakkilaudan tummat ruudut */
-.cell-odd {
-  background-color: #a48a79;
-}
-
-/* Shakkilaudan vaaleat ruudut */
-.cell-even {
-  background-color: #f0e0d6;
-}
-
-
-/* Shakkilaudan tummat ruudut - parittomat rivit */
-.cell:nth-child(10n + 3) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)),
-.cell:nth-child(10n + 1) ~ .cell:nth-child(even):not(:nth-child(10n + 10)) {
-  background-color: #a48a79;
-}
-
-/* Shakkilaudan vaaleat ruudut - parittomat rivit */
-.cell:nth-child(10n + 3) ~ .cell:nth-child(even):not(:nth-child(10n + 10)),
-.cell:nth-child(10n + 1) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)) {
-  background-color: #f0e0d6;
-}
-
-/* Shakkilaudan tummat ruudut - parilliset rivit */
-.cell:nth-child(10n + 2) ~ .cell:nth-child(even):not(:nth-child(10n + 10)),
-.cell:nth-child(10n + 4) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)) {
-  background-color: #a48a79;
-}
-
-/* Shakkilaudan vaaleat ruudut - parilliset rivit */
-.cell:nth-child(10n + 2) ~ .cell:nth-child(odd):not(:nth-child(10n + 10)),
-.cell:nth-child(10n + 4) ~ .cell:nth-child(even):not(:nth-child(10n + 10)) {
-  background-color: #f0e0d6;
+.a1, .a10, .j1, .j10 {
+  background-color: white;
 }
 
 
@@ -114,27 +77,59 @@
   height: 100%;
   font-weight: bold;
   font-size: 1.5rem;
-  color: white;
+  position: relative;
 }
 
-/* Voit määrittää eri värit erilaisille pelinappuloille */
-.piece-triangle {
-  background-color: #f06;
+/* Kolmio */
+.piece-triangle:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 24px solid currentColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.piece-square {
-  background-color: #06f;
+/* Neliö */
+.piece-square:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.piece-circle {
-  background-color: #0f6;
+/* Ympyrä */
+.piece-circle:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.piece-diamond {
-  background-color: #ff0;
+/* Salmiakki */
+.piece-diamond:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 24px solid currentColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.cell:hover {
-  border: 2px solid #00f;
-  box-sizing: border-box;
-}
