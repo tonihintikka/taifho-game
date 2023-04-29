@@ -1,6 +1,7 @@
 import React from 'react';
+import "./Piece.css";
 
-interface PieceProps {
+export interface PieceProps {
   pieceType: string;
   color: string;
 }
