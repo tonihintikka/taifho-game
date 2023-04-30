@@ -1,36 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import Board from "./Board";
-import { startingPositions, StartingPositions } from "./startingPositions";
+import Board, { createInitialBoardState } from "./Board";
+import { startingPositions } from "./startingPositions";
 
 const App: React.FC = () => {
-  
-  const createInitialBoardState = (
-    startingPositions: StartingPositions,
-    rows: number,
-    cols: number
-  ) => {
-    const boardState: any[][] = Array.from({ length: rows }, () =>
-      Array.from({ length: cols }, () => null)
-    );
-
-    for (const player in startingPositions) {
-      const positions = startingPositions[player].positions;
-      const color = startingPositions[player].color;
-      for (const coordinate in positions) {
-        const x = coordinate.charCodeAt(0) - "a".charCodeAt(0);
-        const y = parseInt(coordinate[1], 10) - 1;
-        boardState[y][x] = {
-          player: player,
-          pieceType: positions[coordinate],
-          color: color,
-        };
-      }
-    }
-    console.log(boardState);
-    return boardState;
-  };
-
   const initialBoardState = createInitialBoardState(startingPositions, 10, 10);
   const [boardState, setBoardState] = useState(initialBoardState);
 

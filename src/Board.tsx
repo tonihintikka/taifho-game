@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Piece, { PieceProps } from "./Piece";
-import { startingPositions, StartingPositions } from "./startingPositions";
+import { startingPositions } from "./startingPositions";
 
 interface BoardProps {
   boardState: (PieceProps | null)[][];
@@ -26,7 +26,6 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
 
         if (pieceData) {
           piece = <Piece pieceType={pieceData.pieceType} color={pieceData.color} />;
-
         }
 
         cells.push(
@@ -43,7 +42,7 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
 };
 
 export const createInitialBoardState = (
-  startingPositions: StartingPositions,
+  startingPositions: (string | null)[][],
   rows: number,
   cols: number
 ) => {
@@ -51,22 +50,23 @@ export const createInitialBoardState = (
     Array.from({ length: cols }, () => null)
   );
 
-  for (const player in startingPositions) {
-    const positions = startingPositions[player].positions;
-    const color = startingPositions[player].color;
-    for (const coordinate in positions) {
-      const x = coordinate.charCodeAt(0) - "a".charCodeAt(0);
-      const y = 9 - (parseInt(coordinate[1], 10) - 1);
-      boardState[y][x] = {
-        player: player,
-        pieceType: positions[coordinate], // Muutetaan 'type' -> 'pieceType'
-        color: color,
-      };
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const pieceData = startingPositions[y][x];
+      if (pieceData) {
+        const player = pieceData[0];
+        const pieceType = pieceData.substring(1);
+        const color = player === "r" ? "red" : "blue";
+        boardState[y][x] = {
+          player: player,
+          pieceType: pieceType,
+          color: color,
+        };
+      }
     }
   }
 
   return boardState;
 };
-
 
 export default Board;
