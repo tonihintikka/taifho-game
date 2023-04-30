@@ -47,10 +47,12 @@
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   grid-gap: 1px;
-  width: 500px;
-  height: 500px;
-  /*border: 1px solid white; /* Muuta tämä valkoiseksi */
+  width: 90vw; /* Muuta tämä 90% näytön leveydestä */
+  height: 90vw; /* Muuta tämä 90% näytön leveydestä */
+  max-width: 500px; /* Aseta maksimileveys */
+  max-height: 500px; /* Aseta maksimikorkeus */
 }
+
 
 .cell {
   position: relative;
@@ -133,3 +135,9 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
+@media (max-width: 480px) {
+  .board {
+    width: 95vw; /* Muuta tämä 95% näytön leveydestä */
+    height: 95vw; /* Muuta tämä 95% näytön leveydestä */
+  }
+}

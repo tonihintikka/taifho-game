@@ -19,7 +19,7 @@ const App: React.FC = () => {
       const color = startingPositions[player].color;
       for (const coordinate in positions) {
         const x = coordinate.charCodeAt(0) - "a".charCodeAt(0);
-        const y = 9 - (parseInt(coordinate[1], 10) - 1);
+        const y = parseInt(coordinate[1], 10) - 1;
         boardState[y][x] = {
           player: player,
           pieceType: positions[coordinate],
@@ -27,7 +27,7 @@ const App: React.FC = () => {
         };
       }
     }
-
+    console.log(boardState);
     return boardState;
   };
 
