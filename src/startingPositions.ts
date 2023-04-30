@@ -1,7 +1,7 @@
 export type StartingPosition = (string | null)[][];
 
 export const startingPositions: StartingPosition = [
-  [null, "rT", "rS", "rC", "rS", "rD", "rT", "rD", "rC", null],
+  [null, "rS", "rR", "rT", "rR", "rS", "rC", "rS", "rT", null],
   [null, null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null, null],
@@ -10,5 +10,5 @@ export const startingPositions: StartingPosition = [
   [null, null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null, null, null, null],
-  [null, "bD", "bT", "bT", "bD", "bS", "bC", "bR", "bT", null],
+  [null, "bT", "bS", "bC", "bS", "bR", "bT", "bR", "bC", null],
 ];

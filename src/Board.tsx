@@ -12,6 +12,26 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
   const rows = 10;
   const cols = 10;
 
+  function pieceColor(piece: string): string {
+    return piece[0] === "r" ? "red" : "blue";
+  }
+
+  function pieceShape(piece: string): string {
+    switch (piece[1]) {
+      case "S":
+        return "piece-triangle";
+      case "R":
+        return "piece-square";
+      case "T":
+        return "piece-circle";
+      case "C":
+        return "piece-diamond";
+      default:
+        return "";
+    }
+  }
+  
+
   const renderBoard = () => {
     const cells = [];
     for (let y = 0; y < rows; y++) {
@@ -25,7 +45,18 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
         let piece = null;
 
         if (pieceData) {
-          piece = <Piece pieceType={pieceData.pieceType} color={pieceData.color} />;
+          const { player, pieceType, color } = pieceData;
+          const pieceCode = player + pieceType;
+          const pieceShapeClassName = pieceShape(pieceCode);
+          piece = (
+            <Piece
+              player={player}
+              pieceType={pieceType}
+              color={color}
+              className={pieceShapeClassName}
+            />
+          );
+          
         }
 
         cells.push(
@@ -70,3 +101,4 @@ export const createInitialBoardState = (
 };
 
 export default Board;
+

@@ -1,0 +1,37 @@
+.piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .piece.red {
+    background-color: red;
+  }
+  
+  .piece.blue {
+    background-color: blue;
+  }
+  
+  .piece-symbol {
+    pointer-events: none;
+  }
+  
+  .piece-symbol.triangle::before {
+    content: "\25B2";
+  }
+  
+  .piece-symbol.square::before {
+    content: "\25A0";
+  }
+  
+  .piece-symbol.circle::before {
+    content: "\25CF";
+  }
+  
+  .piece-symbol.rhombus::before {
+    content: "\25C6";
+  }

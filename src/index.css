@@ -80,20 +80,26 @@
   color: white;
 }
 
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: #00f;
+}
 .piece-triangle {
-  background-color: #f06;
+ 
 }
 
 .piece-square {
-  background-color: #06f;
+ 
 }
 
 .piece-circle {
-  background-color: #0f6;
+  
 }
 
 .piece-diamond {
-  background-color: #ff0;
+  
 }
 
 .cell:hover {
