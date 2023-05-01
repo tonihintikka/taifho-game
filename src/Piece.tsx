@@ -1,10 +1,13 @@
 import React from "react";
 
 export interface PieceProps {
+  player: string;
   pieceType: string;
   color: string;
-  player: string;
   className: string;
+  draggable?: boolean;
+  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
 const Piece: React.FC<PieceProps> = ({ pieceType, color, className }) => {

@@ -8,6 +8,25 @@ interface BoardProps {
   onMove: (from: string, to: string) => void;
 }
 
+const handleDragStart = (e: React.DragEvent<HTMLDivElement>, coordinate: string) => {
+  e.dataTransfer.setData("text/plain", coordinate);
+};
+
+const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+  e.preventDefault();
+};
+
+const handleDrop = (e: React.DragEvent<HTMLDivElement>, coordinate: string, onMove: (from: string, to: string) => void) => {
+  e.preventDefault();
+  const from = e.dataTransfer.getData("text/plain");
+  console.log("handleDrop called with:", from, coordinate);
+  onMove(from, coordinate);
+};
+
+const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  e.preventDefault();
+};
+
 const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
   const rows = 10;
   const cols = 10;
@@ -30,7 +49,6 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
         return "";
     }
   }
-  
 
   const renderBoard = () => {
     const cells = [];
@@ -50,20 +68,28 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
           const pieceShapeClassName = pieceShape(pieceCode);
           piece = (
             <Piece
-              player={player}
-              pieceType={pieceType}
-              color={color}
-              className={pieceShapeClassName}
-            />
+            player={player}
+    pieceType={pieceType}
+    color={color}
+    className={pieceShapeClassName}
+    draggable
+    onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, coordinate)}
+    onDragEnd={handleDragEnd}
+  />
           );
-          
         }
 
         cells.push(
-          <div className={classNames.join(" ")} key={`cell-${x}-${y}`}>
+          <div
+            className={classNames.join(" ")}
+            key={`cell-${x}-${y}`}
+            onDrop={(e) => handleDrop(e, coordinate, onMove)}
+            onDragOver={handleDragOver}
+          >
             {piece}
           </div>
         );
+
       }
     }
     return cells;

@@ -8,10 +8,11 @@ const App: React.FC = () => {
   const [boardState, setBoardState] = useState(initialBoardState);
 
   const handleMove = (from: string, to: string) => {
+    console.log("handleMove called with:", from, to);
     const fromX = from.charCodeAt(0) - "a".charCodeAt(0);
-    const fromY = 9 - (parseInt(from[1], 10) - 1);
-    const toX = to.charCodeAt(0) - "a".charCodeAt(0);
-    const toY = 9 - (parseInt(to[1], 10) - 1);
+const fromY = 10 - parseInt(from[1], 10);
+const toX = to.charCodeAt(0) - "a".charCodeAt(0);
+const toY = 10 - parseInt(to[1], 10);
 
     const newBoardState = [...boardState];
     newBoardState[toY][toX] = newBoardState[fromY][fromX];
