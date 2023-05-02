@@ -1,3 +1,15 @@
+# Taifho game
+### 28.4.2023
+I've started this process for giving to chatGPT 4 instructions from the old board game Alga Taifho. I couldn't find rules from Google so i needed to start first scanning the rule sheet with my iPhone and using the text regocnation. Then i just gave those to ChatGPT4 and asked that how I could do this with TypeScript and React. This first day I spend about 6 hours to chatting with ChatGPT4 and I've got working "chessboard". 
+### 29.4.2023
+Now I try to put 2 players game pieces on board. It is not easy task for ChatGPT4. It makes mistakes and I am not experienced developer. I understand basic consepts but in this project there is Probs, Typescript and stuff. Every space means mistake. ChatGPT4 makes mistake as human and sometimes he does typescript errors. For Example it forgots to ad type descriptions as humans does and then the system gives errors. I needed to chat so much that the current limit 30 messages/3 hours did hit:) I didn't get my starting positions right for this day.
+## 30.5.2023
+I've got starting postions quite ready but there is some problems with pieces.
+
+## 2.1.2023
+Jippee, now i can move both of pieces!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -45,13 +57,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Taifho game
-### 28.4.2023
-I've started this process for giving to chatGPT 4 instructions from the old board game Alga Taifho. I couldn't find rules from Google so i needed to start first scanning the rule sheet with my iPhone and using the text regocnation. Then i just gave those to ChatGPT4 and asked that how I could do this with TypeScript and React. This first day I spend about 6 hours to chatting with ChatGPT4 and I've got working "chessboard". 
-### 29.4.2023
-Now I try to put 2 players game pieces on board. It is not easy task for ChatGPT4. It makes mistakes and I am not experienced developer. I understand basic consepts but in this project there is Probs, Typescript and stuff. Every space means mistake. ChatGPT4 makes mistake as human and sometimes he does typescript errors. For Example it forgots to ad type descriptions as humans does and then the system gives errors. I needed to chat so much that the current limit 30 messages/3 hours did hit:) I didn't get my starting positions right for this day.
-## 30.5.2023
-I've got starting postions quite ready but there is some problems with pieces.
 
-##
 

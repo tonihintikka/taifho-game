@@ -8,8 +8,9 @@ interface BoardProps {
   onMove: (from: string, to: string) => void;
 }
 
-const handleDragStart = (e: React.DragEvent<HTMLDivElement>, coordinate: string) => {
+const handleDragStart = (e: React.DragEvent<HTMLDivElement>, coordinate: string, player: string) => {
   e.dataTransfer.setData("text/plain", coordinate);
+  console.log('Moving a', player, 'piece');
 };
 
 const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
@@ -81,7 +82,7 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
     pieceType={pieceType}
     color={color}
     className={pieceShapeClassName}
-    onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, coordinate)}
+    onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, coordinate, player)}
   />
           );
         }
