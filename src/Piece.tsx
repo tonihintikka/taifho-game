@@ -5,15 +5,20 @@ export interface PieceProps {
   pieceType: string;
   color: string;
   className: string;
-  draggable?: boolean;
-  onDragStart?: (e: React.DragEvent<HTMLDivElement>) => void;
-  onDragEnd?: (e: React.DragEvent<HTMLDivElement>) => void;
+  onDragStart: (e: React.DragEvent<HTMLDivElement>) => void;
 }
 
-const Piece: React.FC<PieceProps> = ({ pieceType, color, className }) => {
+
+const Piece: React.FC<PieceProps> = ({ pieceType, color, className, onDragStart}) => {
   return (
-    <div className={`piece ${color} ${className}`}>
-      <span className="piece-symbol">{pieceType}</span>
+    <div
+      className="draggable-area"
+      draggable
+      onDragStart={onDragStart}
+    >
+      <div className={`piece ${color} ${className}`}>
+        <span className="piece-symbol">{pieceType}</span>
+      </div>
     </div>
   );
 };

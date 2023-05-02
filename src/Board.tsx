@@ -16,12 +16,21 @@ const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
   e.preventDefault();
 };
 
-const handleDrop = (e: React.DragEvent<HTMLDivElement>, coordinate: string, onMove: (from: string, to: string) => void) => {
+const handleDrop = (e: React.DragEvent<HTMLDivElement>, coordinate: string, onMove: BoardProps['onMove']) => {
   e.preventDefault();
-  const from = e.dataTransfer.getData("text/plain");
-  console.log("handleDrop called with:", from, coordinate);
-  onMove(from, coordinate);
+  e.stopPropagation();
+  const from = e.dataTransfer.getData("text");
+  const to = coordinate;
+
+  if (from === to) {
+    console.log("Dropping on the same square, ignoring.");
+    return;
+  }
+
+  console.log("handleDrop called with:", coordinate);
+  onMove(from, to);
 };
+
 
 const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
   e.preventDefault();
@@ -72,9 +81,7 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
     pieceType={pieceType}
     color={color}
     className={pieceShapeClassName}
-    draggable
     onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, coordinate)}
-    onDragEnd={handleDragEnd}
   />
           );
         }
