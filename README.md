@@ -11,7 +11,8 @@ I've got starting postions quite ready but there is some problems with pieces.
 
 ## 2.1.2023
 Jippee, now i can move both of pieces!
-current situation 
+current situation. It is no pretty but it has been made pure Finnish Promts!
+
 ![image](https://user-images.githubusercontent.com/6028261/235624526-dd86d887-da69-428a-8d5f-70baf897cf70.png)
 
 
