@@ -42,6 +42,8 @@ const toY = 10 - parseInt(to.slice(1), 10); // Change to[to.length - 1] to to.sl
     <div className="App">
       <Board boardState={boardState} onMove={handleMove} />
     </div>
+  
+  
   );
 };
 

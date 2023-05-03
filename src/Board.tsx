@@ -47,13 +47,13 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
 
   function pieceShape(piece: string): string {
     switch (piece[1]) {
-      case "S":
-        return "piece-triangle";
-      case "R":
-        return "piece-square";
       case "T":
-        return "piece-circle";
+        return "piece-triangle";
+      case "S":
+        return "piece-square";
       case "C":
+        return "piece-circle";
+      case "R":
         return "piece-diamond";
       default:
         return "";
