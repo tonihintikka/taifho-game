@@ -1,30 +1,42 @@
 import Piece, { PieceProps } from "./Piece";
 
 export const canJumpOver = (
-  boardState: (PieceProps | null)[][],
-  fromX: number,
-  fromY: number,
-  toX: number,
-  toY: number
-) => {
-  const xDiff = toX - fromX;
-  const yDiff = toY - fromY;
+    boardState: (PieceProps | null)[][],
+    fromX: number,
+    fromY: number,
+    toX: number,
+    toY: number
+  ) => {
+    const xDiff = toX - fromX;
+    const yDiff = toY - fromY;
+  
+    const midX = Math.round(fromX + xDiff / 2);
+    const midY = Math.round(fromY + yDiff / 2);
 
-  const midX = fromX + xDiff / 2;
-  const midY = fromY + yDiff / 2;
-
-  // Tarkista, että väliin jäävä ruutu sisältää nappulan
-  if (boardState[midY][midX] === null) {
-    return false;
-  }
-
-  // Tarkista, että kohderuutu on tyhjä
-  if (boardState[toY][toX] !== null) {
-    return false;
-  }
-
-  return true;
-};
+  
+    // Tarkista, etteivät koordinaatit mene laudan ulkopuolelle
+    if (midX < 0 || midX >= boardState[0].length || midY < 0 || midY >= boardState.length) {
+      return false;
+    }
+  
+    // Tarkista, että väliin jäävä ruutu sisältää nappulan
+    if (boardState[midY][midX] === null) {
+      return false;
+    }
+  
+    // Tarkista, että kohderuutu on tyhjä
+    if (boardState[toY][toX] !== null) {
+      return false;
+    }
+  
+    // Tarkista, että siirto on joko suora tai vinottainen
+    const isStraight = Math.abs(xDiff) === Math.abs(yDiff) || xDiff === 0 || yDiff === 0;
+    const isJump = Math.abs(xDiff) === 2 || Math.abs(yDiff) === 2;
+  
+    return isStraight && isJump;
+  };
+  
+  
 
 export const handleMove = (
   boardState: (PieceProps | null)[][],
