@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./App.css";
 import Piece, { PieceProps } from "./Piece";
 import { startingPositions } from "./startingPositions";
@@ -40,6 +40,30 @@ const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
 const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
   const rows = 10;
   const cols = 10;
+  const touchStartRef = useRef({ clientX: 0, clientY: 0 });
+  const touchEndRef = useRef({ clientX: 0, clientY: 0 });
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartRef.current = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndRef.current = { clientX: e.changedTouches[0].clientX, clientY: e.changedTouches[0].clientY };
+  };
+
+  useEffect(() => {
+    const boardElement = document.querySelector<HTMLElement>(".board");
+    if (boardElement) {
+      boardElement.addEventListener("touchstart", (e: TouchEvent) => {
+        e.preventDefault();
+      }, { passive: false });
+      boardElement.addEventListener("touchmove", (e: TouchEvent) => {
+        e.preventDefault();
+      }, { passive: false });
+    }
+  }, []);
+  
+
 
   function pieceColor(piece: string): string {
     return piece[0] === "r" ? "red" : "blue";
