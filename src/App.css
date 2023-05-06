@@ -51,6 +51,7 @@
   height: 90vw; /* Muuta tämä 90% näytön leveydestä */
   max-width: 500px; /* Aseta maksimileveys */
   max-height: 500px; /* Aseta maksimikorkeus */
+  touch-action: none;
 }
 
 

@@ -6,6 +6,7 @@
     height: 100%;
     font-size: 1.5em;
     font-weight: bold;
+    touch-action: none;
   }
   
   .piece.red {
@@ -14,6 +15,12 @@
   
   .piece.blue {
     background-color: blue;
+  }
+  .piece.yellow {
+    background-color: yellow;
+  }
+  .piece.green {
+    background-color: green;
   }
   
   .piece-symbol {

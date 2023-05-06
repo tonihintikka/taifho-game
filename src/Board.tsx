@@ -42,7 +42,18 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
   const cols = 10;
 
   function pieceColor(piece: string): string {
-    return piece[0] === "r" ? "red" : "blue";
+    switch (piece[0]) {
+      case "r":
+        return "red";
+      case "b":
+        return "blue";
+      case "g":
+        return "green";
+      case "y":
+        return "yellow";
+      default:
+        return "";
+    }
   }
 
   function pieceShape(piece: string): string {
@@ -121,7 +132,21 @@ export const createInitialBoardState = (
       if (pieceData) {
         const player = pieceData[0];
         const pieceType = pieceData.substring(1);
-        const color = player === "r" ? "red" : "blue";
+        const color = (() => {
+          switch (player) {
+            case "r":
+              return "red";
+            case "b":
+              return "blue";
+            case "g":
+              return "green";
+            case "y":
+              return "yellow";
+            default:
+              return "";
+          }
+        })();
+        
         boardState[y][x] = {
           player: player,
           pieceType: pieceType,
