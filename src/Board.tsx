@@ -102,13 +102,16 @@ const Board: React.FC<BoardProps> = ({ boardState, onMove }) => {
           const pieceShapeClassName = pieceShape(pieceCode);
           piece = (
             <Piece
-            player={player}
-    pieceType={pieceType}
-    color={color}
-    className={pieceShapeClassName}
-    onDragStart={(e: React.DragEvent<HTMLDivElement>) => handleDragStart(e, coordinate, player)}
-  />
+              player={player}
+              pieceType={pieceType}
+              color={color}
+              className={pieceShapeClassName}
+              coordinate={coordinate}
+              onDragStart={(e: React.DragEvent<HTMLDivElement>, from: string, to: string) => handleDragStart(e, coordinate, player)}
+              onMove={onMove}
+            />
           );
+          
         }
 
         cells.push(
