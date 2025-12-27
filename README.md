@@ -1,68 +1,89 @@
-# Taifho game
-### 28.4.2023
-I've started this process for giving to chatGPT 4 instructions from the old board game Alga Taifho. I couldn't find rules from Google so i needed to start first scanning the rule sheet with my iPhone and using the text regocnation. Then i just gave those to ChatGPT4 and asked that how I could do this with TypeScript and React. This first day I spend about 6 hours to chatting with ChatGPT4 and I've got working "chessboard". 
+# Taifho Game
 
-![IMG_3549](https://user-images.githubusercontent.com/6028261/235623392-9029a96f-ea6a-42b1-90ab-0d27efb2b61d.jpg)
+A digital implementation of **Taifho**, a classic Finnish abstract strategy board game originally published by Alga.
 
-### 29.4.2023
-Now I try to put 2 players game pieces on board. It is not easy task for ChatGPT4. It makes mistakes and I am not experienced developer. I understand basic consepts but in this project there is Probs, Typescript and stuff. Every space means mistake. ChatGPT4 makes mistake as human and sometimes he does typescript errors. For Example it forgots to ad type descriptions as humans does and then the system gives errors. I needed to chat so much that the current limit 30 messages/3 hours did hit:) I didn't get my starting positions right for this day.
-## 30.5.2023
-I've got starting postions quite ready but there is some problems with pieces.
+## Project History
 
-## 2.1.2023
-Jippee, now i can move both of pieces!
-current situation. It is no pretty but it has been made pure Finnish Promts!
+### Original Version (2023)
 
-![image](https://user-images.githubusercontent.com/6028261/235624526-dd86d887-da69-428a-8d5f-70baf897cf70.png)
+This project was originally created in **April 2023** as a **pair programming experiment with GPT-4**. The original version explored how AI could assist in game development through manual, conversational coding. The development process involved:
 
+- Scanning and transcribing game rules from the original Alga board game
+- Iterative development with GPT-4 through chat-based prompts
+- Learning TypeScript and React concepts along the way
+- Overcoming challenges like type errors and component structure
 
+The original version successfully implemented:
+- Basic game board and piece rendering
+- Piece movement mechanics
+- Starting positions for 2 players
 
-# Getting Started with Create React App
+![Original Game Board](https://user-images.githubusercontent.com/6028261/235624526-dd86d887-da69-428a-8d5f-70baf897cf70.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### New Version (2025) - Agentic AI Development
 
-## Available Scripts
+In **December 2025**, I revisited the project and created a complete remake using **agentic AI development** with [Antigravity](https://antigravity.dev) and [Cursor](https://cursor.com). This new approach demonstrated the significant evolution in AI-assisted development:
 
-In the project directory, you can run:
+- **Development Time**: Complete reimplementation took approximately **2 hours** (vs. multiple days with manual GPT-4 chat)
+- **AI Models Used**: 
+  - Gemini 3.0 Pro
+  - Claude Opus 4.5 Thinking
+- **Development Approach**: Agentic AI with autonomous code generation and iteration
+- **Result**: Full-featured game with AI opponents, multiple game modes, and modern architecture
 
-### `npm start`
+## 🎮 New Version: [taifho-2025](./taifho-2025/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**👉 [Go to the new version README](./taifho-2025/README.md)**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The new version includes:
+- ✅ Complete game rules implementation (all piece types, jumps, leaps)
+- ✅ AI opponent with configurable difficulty levels
+- ✅ AI vs AI spectator mode
+- ✅ 2-player and 4-player support
+- ✅ Per-player AI difficulty settings
+- ✅ Move history and replay
+- ✅ Modern tech stack (React 19, Vite, Zustand, TypeScript)
+- ✅ Comprehensive test suite
+- ✅ Cursor IDE rules for code quality
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### New Version (Recommended)
 
-### `npm run build`
+```bash
+cd taifho-2025
+npm install
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+See [taifho-2025/README.md](./taifho-2025/README.md) for full documentation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Original Version (Legacy)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The original version is preserved in the root directory for historical reference. It uses Create React App and older React patterns.
 
-### `npm run eject`
+```bash
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Development Story
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project showcases the evolution of AI-assisted development:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **2023**: Manual pair programming with GPT-4 through chat interface
+   - Conversational, iterative development
+   - Learning and debugging together
+   - ~6+ hours of development time
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **2025**: Agentic AI development with Antigravity and Cursor
+   - Autonomous code generation
+   - Multi-model AI collaboration (Gemini + Claude)
+   - ~2 hours for complete reimplementation
+   - Production-ready code quality
 
-## Learn More
+The dramatic improvement in development speed and code quality demonstrates how agentic AI tools are transforming software development workflows.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-
+MIT
