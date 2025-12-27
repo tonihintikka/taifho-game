@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders game board and pieces', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const pieceElements = screen.getAllByText(/C/i); // Check for Circle pieces
+  expect(pieceElements.length).toBeGreaterThan(0);
 });
