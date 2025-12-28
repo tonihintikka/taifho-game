@@ -1,0 +1,235 @@
+.setup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.setup-modal {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+    text-align: center;
+    color: #fff;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.setup-modal h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.setup-group {
+    margin-bottom: 2rem;
+}
+
+.setup-group h3 {
+    margin-bottom: 1rem;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.option-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.setup-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #444;
+    background: transparent;
+    color: #888;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    min-width: 120px;
+}
+
+.setup-btn:hover {
+    border-color: #666;
+    color: #fff;
+}
+
+.setup-btn.active {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.2);
+}
+
+.start-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 1rem;
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+/* Player Settings */
+.player-setting {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.player-label {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.player-type-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.player-type-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #444;
+    background: transparent;
+    color: #888;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.player-type-btn:hover {
+    border-color: #666;
+    color: #fff;
+}
+
+.player-type-btn.active {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.15);
+    color: #fff;
+}
+
+.difficulty-selector {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.difficulty-label {
+    color: #aaa;
+    font-size: 0.85rem;
+    min-width: 80px;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 0.4rem 0.6rem;
+    border: 2px solid #444;
+    background: transparent;
+    color: #888;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.difficulty-btn:hover {
+    border-color: #666;
+    color: #fff;
+}
+
+.difficulty-btn.active {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.15);
+    color: #fff;
+}
+
+/* Difficulty level colors */
+.difficulty-btn.difficulty-beginner.active {
+    border-color: #94a3b8;
+    background: rgba(148, 163, 184, 0.15);
+}
+
+.difficulty-btn.difficulty-easy.active {
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.15);
+}
+
+.difficulty-btn.difficulty-medium.active {
+    border-color: #fbbf24;
+    background: rgba(251, 191, 36, 0.15);
+}
+
+.difficulty-btn.difficulty-challenging.active {
+    border-color: #fb923c;
+    background: rgba(251, 146, 60, 0.15);
+}
+
+.difficulty-btn.difficulty-hard.active {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.15);
+}
+
+.difficulty-btn.difficulty-master.active {
+    border-color: #a78bfa;
+    background: rgba(167, 139, 250, 0.15);
+}
+
+.difficulty-btn.difficulty-grandmaster.active {
+    border-color: #fcd34d;
+    background: linear-gradient(135deg, rgba(252, 211, 77, 0.2), rgba(234, 179, 8, 0.2));
+    box-shadow: 0 0 10px rgba(252, 211, 77, 0.3);
+}
+
+/* Setup type hint */
+.setup-hint {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}

@@ -1,0 +1,55 @@
+---
+description: Taifho game-specific rules and types
+globs: ["src/types/**/*.ts", "src/utils/**/*.ts"]
+alwaysApply: true
+---
+
+# Taifho Game Logic Rules
+
+## Core Types (src/types/game.ts)
+
+Always use these established types:
+
+```ts
+type PlayerColor = 'red' | 'blue' | 'yellow' | 'green';
+type PieceType = 'circle' | 'square' | 'triangle' | 'diamond';
+
+interface Piece { id: string; type: PieceType; color: PlayerColor; }
+interface Position { x: number; y: number; }
+interface Move { from: Position; to: Position; piece: Piece; }
+```
+
+## Board Representation
+
+- Board is `(Piece | null)[][]` - 10x10 grid
+- Access: `board[y][x]` (row-first indexing)
+- Origin (0,0) is top-left
+- Red starts at y=0 (top), Blue starts at y=9 (bottom)
+
+## Movement Rules
+
+| Piece | Basic Move | Jump | Leap |
+|-------|------------|------|------|
+| Square | Orthogonal (±1) | Over adjacent, ortho | Symmetric, ortho |
+| Diamond | Diagonal (±1,±1) | Over adjacent, diag | Symmetric, diag |
+| Circle | All 8 dirs (±1) | Over adjacent, any | Symmetric, any |
+| Triangle | Diag forward OR straight back | Same directions | Same directions |
+
+## Direction Helpers
+
+Use these from `src/types/game.ts`:
+- `getForwardDirection(color)` - Returns {dx, dy} for forward movement
+- `getGoalLine(color)` - Returns target row/column
+- `getStartLine(color)` - Returns starting row/column
+
+## Validation
+
+- Always validate moves through `isMoveValid()` in `utils/moveValidation.ts`
+- Check bounds: 0 ≤ x,y < 10
+- Check target is empty (for normal moves)
+- Check piece ownership matches current player
+
+## Win Condition
+
+- Player wins when all 8 pieces reach opponent's starting row
+- Use `checkWinner()` from `utils/winCondition.ts`

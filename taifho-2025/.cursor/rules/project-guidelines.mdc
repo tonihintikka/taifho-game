@@ -1,0 +1,61 @@
+---
+description: General project guidelines and conventions
+alwaysApply: true
+---
+
+# Taifho 2025 Project Guidelines
+
+## Language
+
+- Code: English (variables, functions, comments)
+- Git commits: English
+- Documentation: English
+
+## Code Style
+
+- Use 2 spaces for indentation
+- Use single quotes for strings
+- No semicolons (unless required)
+- Use arrow functions for callbacks
+- Use `const` by default, `let` when needed, never `var`
+
+## File Naming
+
+- Components: `PascalCase.tsx`
+- Utilities/logic: `camelCase.ts`
+- Types: `camelCase.ts` or group in `types.ts`
+- Tests: `*.test.ts` or `*.test.tsx`
+- CSS: `ComponentName.css` (matching component)
+
+## Git Commits
+
+Format: `type: short description`
+
+Types:
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `refactor:` - Code restructuring
+- `docs:` - Documentation
+- `test:` - Tests
+- `chore:` - Maintenance
+
+## Before Completing Work
+
+1. ✅ No TypeScript errors (`npm run build`)
+2. ✅ Tests pass (`npm test`)
+3. ✅ Linting passes (`npm run lint`)
+4. ✅ Code is formatted consistently
+5. ✅ New code has appropriate tests
+6. ✅ Documentation updated if needed
+
+## Dependencies
+
+- Don't add new dependencies without good reason
+- Prefer built-in/existing solutions
+- If adding dependency, document why in commit message
+
+## Performance
+
+- Don't optimize prematurely
+- Profile before optimizing
+- Document any intentional performance trade-offs

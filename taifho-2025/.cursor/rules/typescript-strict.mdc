@@ -1,0 +1,39 @@
+---
+description: Strict TypeScript error handling - never ignore type errors
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+# TypeScript Strict Mode Rules
+
+## Never Ignore Type Errors
+
+- **NEVER** use `@ts-ignore`, `@ts-nocheck`, or `@ts-expect-error` to suppress errors
+- All TypeScript errors must be fixed properly by addressing the root cause
+- Run `tsc --noEmit` to verify there are no type errors before considering work complete
+
+## Type Safety
+
+- **NEVER** use `any` type. Use `unknown` if type is truly unknown, then narrow it
+- Always define explicit return types for functions
+- Use strict null checks - handle `null` and `undefined` explicitly
+- Prefer `undefined` over `null` for optional values
+
+## Type Definitions
+
+- Define types in `src/types/` directory for shared types
+- Use `interface` for object shapes, `type` for unions/intersections
+- Export types only when needed by multiple modules
+- Use TypeScript utility types: `Partial`, `Required`, `Pick`, `Omit`, `Record`
+
+## Assertions
+
+- Avoid type assertions (`as Type`) - prefer type guards instead
+- If assertion is necessary, add a comment explaining why it's safe
+- Never use `as any` - this defeats the purpose of TypeScript
+
+## Generics
+
+- Use generics for reusable, type-safe code
+- Provide meaningful generic parameter names (e.g., `TState` not just `T`)
+- Add constraints when appropriate: `<T extends BaseType>`

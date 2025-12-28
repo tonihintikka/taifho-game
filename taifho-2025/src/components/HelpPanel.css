@@ -1,0 +1,82 @@
+.help-panel {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: #e0e0e0;
+    max-width: 320px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.help-panel h2 {
+    margin: 0 0 0.75rem 0;
+    color: #fff;
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.help-panel h3 {
+    margin: 1rem 0 0.5rem 0;
+    color: #a0c4ff;
+    font-size: 1rem;
+}
+
+.help-panel .goal {
+    font-weight: 600;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.help-panel .controls {
+    color: #90caf9;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.help-panel ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style-type: none;
+}
+
+.help-panel li {
+    margin-bottom: 0.4rem;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.help-panel li::before {
+    content: "•";
+    position: absolute;
+    left: -0.8rem;
+    color: #a0c4ff;
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.lang-switcher button {
+    flex: 1;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: transparent;
+    color: #a0c4ff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.lang-switcher button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switcher button.active {
+    background: rgba(160, 196, 255, 0.2);
+    border-color: #a0c4ff;
+    color: #fff;
+}

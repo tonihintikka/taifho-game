@@ -1,0 +1,65 @@
+---
+description: Testing guidelines with Vitest
+globs: ["**/*.test.ts", "**/*.test.tsx", "**/__tests__/**"]
+alwaysApply: true
+---
+
+# Testing Rules
+
+## Test Structure
+
+```
+src/
+├── ai/__tests__/
+│   └── ai.test.ts
+├── utils/__tests__/
+│   ├── moveValidation.test.ts
+│   └── jumpValidation.test.ts
+└── components/__tests__/  # If needed
+```
+
+## Naming
+
+- Test files: `*.test.ts` or `*.test.tsx`
+- Test directories: `__tests__/` within feature folders
+- Describe blocks: feature/function name
+- It blocks: "should [expected behavior]"
+
+## Test Organization
+
+```ts
+describe('functionName', () => {
+  describe('when condition', () => {
+    it('should do expected thing', () => {
+      // Arrange
+      const input = setupTestData();
+      
+      // Act
+      const result = functionName(input);
+      
+      // Assert
+      expect(result).toBe(expected);
+    });
+  });
+});
+```
+
+## What to Test
+
+- **Must test**: Game logic, move validation, AI decisions
+- **Should test**: Complex utility functions, edge cases
+- **Optional**: Simple UI components, straightforward helpers
+
+## Assertions
+
+- Use specific matchers: `toBe`, `toEqual`, `toContain`
+- Test both success and failure cases
+- Test edge cases: empty input, boundaries, nulls
+
+## Running Tests
+
+```bash
+npm test           # Run all tests
+npm test -- --watch # Watch mode
+npm test ai        # Run tests matching "ai"
+```

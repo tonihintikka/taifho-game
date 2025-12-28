@@ -1,0 +1,110 @@
+.move-log-container {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #ccc;
+    border: 1px solid #333;
+}
+
+.move-log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #333;
+}
+
+.move-log-header h4 {
+    margin: 0;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    padding: 0.25rem 0.5rem;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    background: #444;
+    color: #fff;
+}
+
+.copy-btn.copied {
+    background: #2a5a2a;
+    border-color: #4a8a4a;
+    color: #8f8;
+}
+
+.move-log-content {
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.history-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #333;
+}
+
+.history-btn {
+    flex: 1;
+    padding: 0.4rem 0.8rem;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.history-btn:hover:not(:disabled) {
+    background: #444;
+    color: #fff;
+}
+
+.history-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.viewing-history-notice {
+    background: #4a3a00;
+    color: #ffa;
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-btn {
+    background: #667eea;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.resume-btn:hover {
+    background: #5a6fd6;
+}

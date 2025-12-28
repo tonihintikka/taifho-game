@@ -1,0 +1,51 @@
+---
+description: AI module specific rules
+globs: ["src/ai/**/*.ts"]
+alwaysApply: true
+---
+
+# AI Module Rules
+
+## Architecture
+
+```
+src/ai/
+├── minimax.ts       # Search algorithm
+├── evaluator.ts     # Board evaluation
+├── moveGenerator.ts # Legal move generation
+└── __tests__/       # AI tests
+```
+
+## Performance
+
+- AI runs synchronously - keep search depth reasonable (1-4)
+- Use alpha-beta pruning to reduce search space
+- Consider move ordering to improve pruning efficiency
+- Cache evaluations with transposition table if needed
+
+## Minimax Implementation
+
+- `getBestMove()` is the main entry point
+- Always return a valid move or null (never throw)
+- Handle edge cases: no legal moves, immediate win/loss
+- Use consistent scoring: positive = good for maximizing player
+
+## Evaluator
+
+- `evaluateBoard()` returns a number (positive = advantage)
+- Check for terminal states (win/loss) first with extreme scores
+- Keep heuristics simple and fast
+- Document what each heuristic measures
+
+## Move Generator
+
+- `getAllLegalMoves()` returns all valid moves for a player
+- Reuse validation logic from `utils/moveValidation.ts`
+- Return empty array if no moves (not null)
+
+## Testing
+
+- Test AI against known positions
+- Verify it finds obvious wins
+- Test edge cases: blocked positions, one move left
+- Performance test: measure time for standard search depths

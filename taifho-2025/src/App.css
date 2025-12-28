@@ -1,0 +1,249 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-container h1 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.game-info {
+  margin-bottom: 1rem;
+}
+
+.game-info p {
+  margin: 0.5rem 0;
+}
+
+.game-info .red {
+  color: #ef5350;
+  font-weight: bold;
+}
+
+.game-info .blue {
+  color: #42a5f5;
+  font-weight: bold;
+}
+
+.game-info button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-info button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.game-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 350px;
+}
+
+.game-info .yellow {
+  color: #ffca28;
+  font-weight: bold;
+}
+
+.game-info .green {
+  color: #66bb6a;
+  font-weight: bold;
+}
+
+/* Winner Overlay */
+.winner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.winner-modal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #e94560;
+  border-radius: 16px;
+  padding: 3rem 4rem;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(233, 69, 96, 0.4);
+  animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.winner-modal h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.winner-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0 2rem 0;
+  text-transform: uppercase;
+}
+
+.winner-text.red {
+  color: #ef5350;
+}
+
+.winner-text.blue {
+  color: #42a5f5;
+}
+
+.winner-text.yellow {
+  color: #ffca28;
+}
+
+.winner-text.green {
+  color: #66bb6a;
+}
+
+/* Placements list in modal (4P) */
+.placements-list {
+  margin: 1rem 0 2rem 0;
+  text-align: left;
+}
+
+.placements-list h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.placement-row {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.placement-row.red { color: #ef5350; }
+.placement-row.blue { color: #42a5f5; }
+.placement-row.yellow { color: #ffca28; }
+.placement-row.green { color: #66bb6a; }
+
+/* Live placements during game */
+.live-placements {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.placement-badge {
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.placement-badge.red { color: #ef5350; border: 1px solid #ef5350; }
+.placement-badge.blue { color: #42a5f5; border: 1px solid #42a5f5; }
+.placement-badge.yellow { color: #ffca28; border: 1px solid #ffca28; }
+.placement-badge.green { color: #66bb6a; border: 1px solid #66bb6a; }
+
+.play-again-btn {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.play-again-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+}
+
+.winner-banner {
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.winner-banner.red {
+  color: #ef5350;
+}
+
+.winner-banner.blue {
+  color: #42a5f5;
+}
+
+.winner-banner.yellow {
+  color: #ffca28;
+}
+
+.winner-banner.green {
+  color: #66bb6a;
+}

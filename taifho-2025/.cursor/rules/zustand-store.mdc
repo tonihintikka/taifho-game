@@ -1,0 +1,63 @@
+---
+description: Zustand store patterns for this project
+globs: ["src/store/**/*.ts"]
+alwaysApply: true
+---
+
+# Zustand Store Rules
+
+## Store Architecture
+
+This project uses a slice-based Zustand architecture:
+
+```
+src/store/
+├── useGameStore.ts    # Main store (combines slices)
+├── types.ts           # Store types
+├── helpers.ts         # Store helper functions
+└── slices/
+    ├── index.ts       # Slice exports
+    ├── gameSlice.ts   # Game lifecycle
+    ├── moveSlice.ts   # Move handling
+    ├── historySlice.ts# History navigation
+    └── aiSlice.ts     # AI logic
+```
+
+## Creating Slices
+
+- Each slice handles ONE domain of state
+- Slice creator function signature: `(set, get) => sliceState`
+- Keep slices under 100 lines - split if larger
+
+```ts
+export interface MySliceState {
+  someValue: string;
+  doSomething: () => void;
+}
+
+export const createMySlice: StoreSlice<MySliceState> = (set, get) => ({
+  someValue: 'initial',
+  doSomething: () => {
+    set({ someValue: 'updated' });
+  }
+});
+```
+
+## State Updates
+
+- Use `set()` for state updates
+- Use `get()` to read current state in actions
+- Prefer shallow updates: `set({ field: newValue })`
+- For nested updates, spread carefully or use immer
+
+## Naming
+
+- State properties: `camelCase` nouns (e.g., `currentPlayer`)
+- Actions: `camelCase` verbs (e.g., `movePiece`, `resetGame`)
+- Boolean state: `is` or `has` prefix (e.g., `isLoading`, `hasWon`)
+
+## Do NOT
+
+- Don't put derived state in store - compute it
+- Don't mutate state directly
+- Don't call external APIs directly in actions (use async actions)

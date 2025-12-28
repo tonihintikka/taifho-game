@@ -1,0 +1,220 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #333;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.board-row {
+    display: flex;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cell.light {
+    background-color: #f0d9b5;
+}
+
+.cell.dark {
+    background-color: #b58863;
+}
+
+.coord {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 8px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.cell.drag-over {
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+/* Selected piece cell */
+.cell.selected {
+    box-shadow: inset 0 0 0 3px rgba(255, 215, 0, 0.8);
+    background-color: rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Valid move highlight */
+.cell.valid-move {
+    cursor: pointer;
+}
+
+.cell.valid-move::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.5) 0%, rgba(76, 175, 80, 0.2) 70%, transparent 100%);
+    z-index: 1;
+}
+
+.cell.valid-move:hover {
+    background-color: rgba(76, 175, 80, 0.4) !important;
+}
+
+/* Valid move dot (alternative style for empty cells) */
+.valid-move-dot {
+    position: absolute;
+    font-size: 16px;
+    color: rgba(76, 175, 80, 0.8);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Valid move with existing piece (capture highlight) */
+.cell.valid-move .draggable-wrapper {
+    position: relative;
+}
+
+.cell.valid-move .draggable-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 3px solid rgba(76, 175, 80, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.draggable-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    cursor: pointer;
+    touch-action: none; /* Important for touch screens */
+}
+
+/* Board container with edge labels */
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.board-with-sides {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Edge labels */
+.board-edge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.board-edge.top,
+.board-edge.bottom {
+    width: 500px; /* Match board width (10 cells * 50px) */
+    height: 28px;
+    border-radius: 4px;
+}
+
+.board-edge.top {
+    background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.board-edge.bottom {
+    background: linear-gradient(0deg, #ef4444 0%, #dc2626 100%);
+}
+
+.board-edge.left,
+.board-edge.right {
+    width: 32px;
+    height: 500px; /* Match board height */
+    writing-mode: vertical-lr;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.board-edge.left {
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+}
+
+.board-edge.right {
+    background: linear-gradient(270deg, #eab308 0%, #ca8a04 100%);
+}
+
+.edge-label {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.edge-label.red { color: #fff; }
+.edge-label.blue { color: #fff; }
+.edge-label.yellow { color: #fff; }
+.edge-label.green { color: #fff; }
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .cell {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .board-edge.top,
+    .board-edge.bottom {
+        width: 400px;
+    }
+    
+    .board-edge.left,
+    .board-edge.right {
+        height: 400px;
+    }
+    
+    .cell.valid-move::before {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .valid-move-dot {
+        font-size: 14px;
+    }
+}
+/* Player type indicator (AI/Human) */
+.player-type {
+    font-size: 0.75em;
+    margin-left: 4px;
+    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 8px;
+}
+
+.edge-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Difficulty text */
+.diff-text {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}

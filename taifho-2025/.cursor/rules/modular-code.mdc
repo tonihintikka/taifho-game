@@ -1,0 +1,49 @@
+---
+description: Keep code modular with reasonable file sizes
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+# Modular Programming Rules
+
+## File Size Limits
+
+- **Maximum 300 lines per file** - if larger, refactor into smaller modules
+- **Maximum 50 lines per function** - break down complex logic
+- **Maximum 10 functions per file** - group related functionality
+
+## Single Responsibility
+
+- Each file/module should have ONE clear purpose
+- Each function should do ONE thing well
+- If you need "and" to describe what a function does, split it
+
+## Project Structure
+
+```
+src/
+├── ai/           # AI logic only
+├── components/   # React components only
+├── store/        # State management only
+├── types/        # TypeScript types only
+├── utils/        # Utility functions only
+```
+
+## When to Create New Files
+
+- New feature = new file(s) in appropriate directory
+- Shared logic used in 2+ places = extract to utils/
+- Complex component = split into smaller sub-components
+- Store growing large = create new slice in store/slices/
+
+## Imports
+
+- Use absolute imports from `src/` when possible
+- Group imports: React → external libs → internal modules → types
+- Avoid circular dependencies - if needed, restructure
+
+## Exports
+
+- Prefer named exports over default exports
+- Create `index.ts` barrel files for directories with multiple exports
+- Only export what's needed by other modules
