@@ -112,7 +112,7 @@ A "Leap" is a long, symmetric jump over a piece.
 ## 6. Four-Player Variant
 
 In the 4-player version:
-- Each player has **6 pieces** (no circles, or reduced set)
+- Each player has **8 pieces** (2 squares, 2 circles, 2 triangles, 2 diamonds)
 - Players occupy all four sides of the board
 - Goal is to reach the **opposite side**
 - Game continues until **three players** have finished (1st, 2nd, 3rd place)
