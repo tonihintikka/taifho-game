@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "name": "taifho-game",
+  "framework": "vite",
+  "buildCommand": "cd taifho-2025 && npm install && npm run build",
+  "outputDirectory": "taifho-2025/dist",
+  "installCommand": "cd taifho-2025 && npm install",
+  "devCommand": "cd taifho-2025 && npm run dev",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- taifho-2025/"
+}
