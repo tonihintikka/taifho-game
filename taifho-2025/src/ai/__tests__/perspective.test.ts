@@ -21,8 +21,7 @@ import { describe, it, expect } from 'vitest'
 import type { Piece, PlayerColor } from '../../types/game'
 import { getGoalLine } from '../../types/game'
 import { evaluateBoard } from '../evaluator'
-import { BOARD_SIZE, createInitialBoard } from '../../utils/boardUtils'
-import { DEFAULT_4P_CONFIG } from '../../types/game'
+import { BOARD_SIZE } from '../../utils/boardUtils'
 
 // Helper to create a board with pieces at specific positions
 const createTestBoard = (): (Piece | null)[][] => {
